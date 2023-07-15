@@ -1,0 +1,9 @@
+/node_modules
+/dist
+.npm*
+.cache*
+.vscode-server*
+.dotnet*
+.ash_history
+yarn.lock
+/src/auth
