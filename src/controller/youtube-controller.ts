@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import multer from "multer";
 import path from "path";
-import uploadVideoService from "../services/YoutubeService";
+import uploadVideoService from "../services/youtube-service";
 
 const youtubeRoutes = Router();
 youtubeRoutes.get("/", async(request: Request, response: Response) => {
@@ -10,7 +10,7 @@ youtubeRoutes.get("/", async(request: Request, response: Response) => {
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'uploads/');
+      cb(null, 'upload/');
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + path.extname(file.originalname)); // Adiciona a extensão

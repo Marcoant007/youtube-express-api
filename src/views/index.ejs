@@ -20,59 +20,174 @@
             color: #c01b1b;
             font-weight: 300;
             border-radius: 20px;
+
+        }
+
+        .center-container {
+            position: relative;
+            height: 100vh;
+            /* Ajuste para ser a altura da tela. */
+        }
+
+        label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Desloca para trás o valor ajustado no topo e na esquerda. */
+        }
+
+        /* CSS */
+        .button-49,
+        .button-49:after {
+            width: 150px;
+            height: 76px;
+            line-height: 78px;
+            font-size: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+            border: 0;
+            color: #fff;
+            letter-spacing: 3px;
+            box-shadow: 6px 0px 0px #00E6F6;
+            outline: transparent;
+            position: relative;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+
+        .button-49:after {
+            --slice-0: inset(50% 50% 50% 50%);
+            --slice-1: inset(80% -6px 0 0);
+            --slice-2: inset(50% -6px 30% 0);
+            --slice-3: inset(10% -6px 85% 0);
+            --slice-4: inset(40% -6px 43% 0);
+            --slice-5: inset(80% -6px 5% 0);
+
+            content: 'UPLOAD VIDEO';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+            text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+            clip-path: var(--slice-0);
+        }
+
+        .button-49:hover:after {
+            animation: 1s glitch;
+            animation-timing-function: steps(2, end);
+        }
+
+        @keyframes glitch {
+            0% {
+                clip-path: var(--slice-1);
+                transform: translate(-20px, -10px);
+            }
+
+            10% {
+                clip-path: var(--slice-3);
+                transform: translate(10px, 10px);
+            }
+
+            20% {
+                clip-path: var(--slice-1);
+                transform: translate(-10px, 10px);
+            }
+
+            30% {
+                clip-path: var(--slice-3);
+                transform: translate(0px, 5px);
+            }
+
+            40% {
+                clip-path: var(--slice-2);
+                transform: translate(-5px, 0px);
+            }
+
+            50% {
+                clip-path: var(--slice-3);
+                transform: translate(5px, 0px);
+            }
+
+            60% {
+                clip-path: var(--slice-4);
+                transform: translate(5px, 10px);
+            }
+
+            70% {
+                clip-path: var(--slice-2);
+                transform: translate(-10px, 10px);
+            }
+
+            80% {
+                clip-path: var(--slice-5);
+                transform: translate(20px, -10px);
+            }
+
+            90% {
+                clip-path: var(--slice-1);
+                transform: translate(-10px, 0px);
+            }
+
+            100% {
+                clip-path: var(--slice-1);
+                transform: translate(0);
+            }
+        }
+
+        @media (min-width: 768px) {
+
+            .button-49,
+            .button-49:after {
+                width: 500px;
+                height: 86px;
+                line-height: 88px;
+            }
+        }
+
+        p {
+            color: white;
+            font-size: 25px;
+            font-weight: 600;
+            padding: 20px;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+            margin: auto;
+            height: 80px;
             
         }
-
-        .button-upload {
-            height: 40px;
-            vertical-align: middle;
-            align-items: center;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-left: 160px;
-            width: 400px;
-            height: 50px;
-            border-radius: 20px;
-            background: white;
-            border: 1px solid #c01b1b;
-        }
-
-        .button-submit {
-            height: 40px;
-            vertical-align: middle;
-            align-items: center;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-left: 270px;
-            width: 200px;
-            height: 50px;
-            border-radius: 20px;
-            background: #17682f;
-            color: white;
-            text-decoration: none;
-        }
-
-        img{
+        img {
             margin-left: 50px;
             margin-top: 5px;
             margin-left: 110px;
         }
-
     </style>
 </head>
 
 <body>
-    <form action="/app/upload" method="post" enctype="multipart/form-data">
-        <label for="file-upload">
-            <div class="button-upload">
-                <img src="https://i.ibb.co/c3Y72yS/youtube.png" alt="YouTube Logo"
-                    style="height: 40px;  border: 1px;">
-            </div>
-        </label>
+    <div class="center-container"> <!-- Novo conteúdo contêiner para ajudar na centralização-->
+        <form action="/app/upload" method="post" enctype="multipart/form-data">
+            <label for="file-upload">
+                <div class="button-49">
+                    <div class="flex">
+                        <img src="https://i.ibb.co/SB82n3n/youtube-play.png" alt="YouTube Logo"
+                        style="height: 50px;  border: 1px;">
+                        <p>Upload Your files</p>
+                    </div>
+                </div>
+            </label>
 
-        <input type="file" name="file" id="file-upload" style="display: none;">
-        <button class="button-submit" type="submit" id="submit-button" style="display: none;">Enviar</button>
-    </form>
+            <input type="file" name="file" id="file-upload" style="display: none;">
+            <button class="button-submit" type="submit" id="submit-button" style="display: none;">Enviar</button>
+        </form>
+    </div>
 
     <script>
         document.getElementById('file-upload').addEventListener('change', function () {

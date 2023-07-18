@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import express, { NextFunction, Request, Response } from 'express';
 import path from "path";
-import { router } from "./routes/Routes";
+import { router } from "./routes/routes";
 
 const port = 3000;
 const server = express();
