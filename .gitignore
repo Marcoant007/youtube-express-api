@@ -7,3 +7,5 @@
 .ash_history
 yarn.lock
 /src/auth
+/src/upload
+/src/views

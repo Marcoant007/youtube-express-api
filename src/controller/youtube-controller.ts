@@ -10,7 +10,7 @@ youtubeRoutes.get("/", async(request: Request, response: Response) => {
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'upload/');
+      cb(null, 'src/upload/');
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + path.extname(file.originalname)); // Adiciona a extensão
@@ -26,7 +26,7 @@ youtubeRoutes.post('/upload', upload.single('file'), async (request: Request, re
            const title = request.file.filename; // update this
            const description = 'Ta subindo o videozin'; // update this
            console.log(title, description)
-        //    await uploadVideoService(request.file.path, title, description);
+           await uploadVideoService(request.file.path, title, description);
            response.send('Upload successful');
         }
     } catch (error) {
