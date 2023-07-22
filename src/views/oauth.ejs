@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OAuth Authorization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./util/bootstrap/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #363636;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        p {
+            color: #363636;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 23px;
+            height: 31%;
+        }
+
+        .button-auth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #892020;
+            width: 120px;
+            height: 50px;
+            margin: auto;
+            border-radius: 10px;
+            margin-top: 25%;
+        }
+
+        a {
+            text-decoration: none!important;
+            font-weight: 400;
+            font-size: 15px;
+            color: white;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            /* margin: auto; */
+            margin: 19px;
+        }
+
+        .title-card {
+           display: flex;
+           margin: auto;
+           margin-left: 3.7%;
+        }
+     
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="title-card">
+            <img src="https://i.ibb.co/nw2qsKM/googleprew.png" alt="">
+            <h3> Google OAuth Authorization</h3>
+            <img src="https://i.ibb.co/nw2qsKM/googleprew.png" alt="">
+        </div>
+        <p>Realize login no google para conseguir realizar o upload no youtube.</p>
+        <div class="button-auth">
+           <a href="<%= oauthUrl %>"> Autorizar </a>
+        </div>
+    </div>
+
+</body>
+</html>

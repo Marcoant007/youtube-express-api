@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import multer from "multer";
 import path from "path";
-import uploadVideoService from "../services/youtube-service";
+import { getTokenUserAuthorization, uploadVideoService } from "../services/youtube-service";
 
 const youtubeRoutes = Router();
 youtubeRoutes.get("/", async(request: Request, response: Response) => {
@@ -16,6 +16,7 @@ const storage = multer.diskStorage({
       cb(null, Date.now() + path.extname(file.originalname)); // Adiciona a extensão
     }
 });
+
   
 const upload = multer({ storage: storage });
 youtubeRoutes.post('/upload', upload.single('file'), async (request: Request, response: Response) => {
@@ -25,14 +26,27 @@ youtubeRoutes.post('/upload', upload.single('file'), async (request: Request, re
         } else {
            const title = request.file.filename; // update this
            const description = 'Ta subindo o videozin'; // update this
-           console.log(title, description)
-           await uploadVideoService(request.file.path, title, description);
-           response.send('Upload successful');
+           const oauthUrl = await uploadVideoService(request.file.path, title, description);
+           response.render('oauth', { oauthUrl: oauthUrl });
         }
     } catch (error) {
         console.log(error);
     }
-})
+});
+
+youtubeRoutes.get('/oauth/callback', async (request: Request, response: Response) => {
+    try {
+      const authCode = request.query.code as string;
+      const tokens = await getTokenUserAuthorization(authCode);
+      console.log(tokens);
+      return response.send('Authentication successful');
+    } catch (error) {
+      console.log(error);
+      return response.status(500).send('Error during authentication');
+    }
+  });
+
+
 
 export default youtubeRoutes;
 

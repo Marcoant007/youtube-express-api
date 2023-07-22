@@ -13,6 +13,8 @@
   "dependencies": {
     "@changesets/cli": "^2.26.1",
     "@prisma/client": "^4.14.1",
+    "@types/axios": "^0.14.0",
+    "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
     "cross-env": "^7.0.3",
     "csv-parse": "^5.4.0",
@@ -23,6 +25,7 @@
     "googleapis": "^122.0.0",
     "jsonwebtoken": "^9.0.0",
     "multer": "^1.4.5-lts.1",
+    "open": "^9.1.0",
     "pg": "^8.11.0",
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.6.3",
