@@ -15,7 +15,7 @@ export async function uploadVideoService(filePath: any, title: string, descripti
     access_type: 'offline',
     scope: ['https://www.googleapis.com/auth/youtube'],
     response_type: 'code'
-  })
+  });
   return consentUrl;
 }
 

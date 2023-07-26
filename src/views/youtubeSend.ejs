@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OAuth Authorization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./util/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Kanit', sans-serif;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 3%, rgba(63,9,121,1) 49%, rgba(63,9,121,1) 100%);
+        }
+
+        p {
+            color: #363636;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 23px;
+            height: 31%;
+        }
+
+        .button-auth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+            border: none;
+            background-color: #FF013C;
+            width: 120px;
+            height: 50px;
+            margin: auto;
+            border-radius: 10px;
+            margin-top: 25%;
+        }
+
+        a {
+            text-decoration: none!important;
+            font-weight: bold;
+            font-size: 15px;
+            color: white;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            /* margin: auto; */
+            margin: 19px;
+        }
+
+        .title-card {
+           display: flex;
+           margin: auto;
+           margin-left: 3.7%;
+        }
+     
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="button-auth">
+           <p><%= acessToken %></p>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
+</body>
+</html>

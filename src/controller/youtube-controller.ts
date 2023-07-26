@@ -38,8 +38,9 @@ youtubeRoutes.get('/oauth/callback', async (request: Request, response: Response
     try {
       const authCode = request.query.code as string;
       const tokens = await getTokenUserAuthorization(authCode);
-      console.log(tokens);
-      return response.send('Authentication successful');
+      const acessToken = tokens.access_token;
+      console.log(tokens)
+      return response.render('youtubeSend', {acessToken: acessToken});
     } catch (error) {
       console.log(error);
       return response.status(500).send('Error during authentication');
