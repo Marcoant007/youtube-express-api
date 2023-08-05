@@ -2,6 +2,7 @@ import { Request, Response, Router } from "express";
 import multer from "multer";
 import path from "path";
 import { getTokenUserAuthorization, googleGlobalOauhAuthenication, uploadVideoService, youtubeSendVideo } from "../services/youtube-service";
+import fs from 'fs';
 
 const youtubeRoutes = Router();
 youtubeRoutes.get("/", async(request: Request, response: Response) => {
@@ -26,7 +27,15 @@ youtubeRoutes.post('/upload', upload.single('file'), async (request: Request, re
             response.send('Arquivo não enviado');
         } else {
            const youtubeVideo = await youtubeSendVideo(request.file);
-           response.send(youtubeVideo);
+               // Deletar arquivo após upload
+               fs.unlink(request.file.path, (err) => {
+                if (err) {
+                    console.error('Erro ao deletar o arquivo:', err);
+                } else {
+                    console.log('Arquivo deletado com sucesso');
+                }
+            });
+          return response.render('youtubeSend', {youtubeVideo : youtubeVideo});
         }
     } catch (error) {
         console.log(error);

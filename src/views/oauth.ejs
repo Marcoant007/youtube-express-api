@@ -16,43 +16,58 @@
             align-items: center;
             height: 100vh;
             font-family: 'Kanit', sans-serif;
-            background: rgb(2,0,36);
-            background: linear-gradient(90deg, rgba(2,0,36,1) 3%, rgba(63,9,121,1) 49%, rgba(63,9,121,1) 100%);
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 3%, rgba(63, 9, 121, 1) 49%, rgba(63, 9, 121, 1) 100%);
         }
 
         p {
-            color: #363636;
+            color: white;
             font-size: 12px;
-            font-weight: 600;
-            padding: 20px;
+            font-weight: 300;
+        }
+
+        .container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            color: white;
         }
 
         .card {
-            background-color: white;
+            display: flex;
+            background-color: #2f2f2f;
             flex-direction: column;
             text-align: center;
             border-radius: 23px;
-            height: 31%;
+            height: 300px;
+            width: 50%;
+            margin: auto;
         }
 
         .button-auth {
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+            box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.5);
             border: none;
             background-color: #FF013C;
             width: 120px;
             height: 50px;
             margin: auto;
             border-radius: 10px;
-            margin-top: 25%;
+            margin-top: -25px;
         }
 
         a {
-            text-decoration: none!important;
+            text-decoration: none !important;
             font-weight: bold;
             font-size: 15px;
+            color: white;
+        }
+
+        h3 {
             color: white;
         }
 
@@ -64,29 +79,46 @@
         }
 
         .title-card {
-           display: flex;
-           margin: auto;
-           margin-left: 3.7%;
+            display: flex;
+            margin-left: 50px;
+            margin-top: 60px;
         }
-     
+
+        span {
+            text-decoration: underline;
+            text-decoration-color:  #FF013C;
+            /* background: rgb(29, 203, 66);
+            background:  */
+        }
     </style>
 </head>
 
 <body>
-    <div class="card">
-        <div class="title-card">
-            <img src="https://i.ibb.co/nw2qsKM/googleprew.png" alt="">
-            <h3> Google OAuth Authorization</h3>
-            <img src="https://i.ibb.co/nw2qsKM/googleprew.png" alt="">
+    <div class="container">
+        <div class="title">
+            <h1>Registre suas melhores capturas de forma <span>rápida</span> <span>segura</span> e <span>simples</span>
+            </h1>
         </div>
-        <p>Realize login no google para conseguir realizar o upload no youtube.</p>
+        <br><br><br>
+        <div class="card">
+            <div class="title-card">
+                <img src="https://i.ibb.co/nw2qsKM/googleprew.png" alt="">
+                <h3> Google OAuth Authorization</h3>
+                <img src="https://i.ibb.co/nw2qsKM/googleprew.png" alt="">
+            </div>
+            <p>Suba seus videos para o youtube em apenas alguns cliques</p>
+            <p>Fique tranquilo, o processo de autenticação é totalmente seguro.</p>
+
+
+        </div>
         <div class="button-auth">
-           <a href="<%= oauthUrl %>"> <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-            Autorizar </i>
-           </a>
+            <a href="<%= oauthUrl %>"> <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                Autorizar </i>
+            </a>
         </div>
     </div>
 
     <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

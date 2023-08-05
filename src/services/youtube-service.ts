@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import path from "path";
 import { google } from "googleapis";
-import credentials from '../auth/client_secret_1095389024206-r4sf9dv30f96ga06ot50b946t0pfq5lj.apps.googleusercontent.com.json';
+import credentials from '../auth/client_secret_1095389024206-mv4ggrlnbo2bfg1bpg6jdlpcidcgbvrk.apps.googleusercontent.com.json';
 import { oauth2 } from "googleapis/build/src/apis/oauth2";
 const OAuth2 = google.auth.OAuth2;
 import axios, { AxiosResponse } from "axios";
@@ -72,7 +72,7 @@ export async function youtubeSendVideo(file: any){
   const youtubeResponse = await youtube.videos.insert(requestParameters, { // Adicionado await aqui
   });
 
-  const message = `Video available at https://youtu.be/${youtubeResponse.data.id}`
+  const message = `https://youtu.be/${youtubeResponse.data.id}`
   
   // const videoId = youtubeResponse.data.id;
   // const videoThumbnalFilePath = '../img/images.jpg';
@@ -97,16 +97,5 @@ export async function youtubeSendVideo(file: any){
   return message;
 }
 
-
-// {
-//   "fieldname": "file",
-//   "originalname": "Valorant 2023.06.30 - 01.07.04.02.DVR.mp4",
-//   "encoding": "7bit",
-//   "mimetype": "video/mp4",
-//   "destination": "src/upload/",
-//   "filename": "1690670261057.mp4",
-//   "path": "src\\upload\\1690670261057.mp4",
-//   "size": 493639442
-// }
 
 
