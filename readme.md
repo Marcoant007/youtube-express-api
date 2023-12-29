@@ -1,6 +1,11 @@
 ## Youtube Express API
 
 Projeto com finalidade de estudos sobre a api do google / youtube.
+Objetivo dele é que o usuário consiga realizar upload de video apenas
+realizando o upload pela aplicação, após ele selecionar o arquivo, o
+código em backend vai realizar o envio para youtube e todas as configurações
+necessárias, possibilitando até mesmo um agendamento de envio ou envio automático
+sem precisar de nenhum interação com a interface do youtube.
 
 ### Tecnologias Utilizadas
 
